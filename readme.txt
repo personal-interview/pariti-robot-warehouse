@@ -1,0 +1,5 @@
+-- Copy the project to a folder
+-- Navigate to the project folder using your terminal
+-- Assuming you have installed npm
+------ Run npm start to run the application
+------ Run  npm test to run the unit test script
