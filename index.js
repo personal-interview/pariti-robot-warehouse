@@ -34,27 +34,38 @@ function validateCommands(commandArray) {
 }
 
 //move the robot
-function moveRobot(moveSequence = "N W S E W W W W W W W", gridPosition = [5, 5]) {
+function moveRobot(moveSequence = "N W S E W W W", gridPosition = [5, 5]) {
     //set up grid
     formualteGrid();
+
+    //get grid position label for indentification
     let gridPositionLabel = gridPosition[0] + " " + gridPosition[1];
+
+    //convert comman from string to array
     let commandArray = commandStringToArray(moveSequence);
+
     //validate command sequence
-    console.log(commandArray)
     if (validateCommands(commandArray)) {
         for (i = 0; i < commandArray.length; i++) {
+            //get next move index
             let nextMove = commandMovement(commandArray[i]);
-            // gridPosition
+
+            //get current grid position
             let currentPosition = getGridIndex(gridPositionLabel)
-            //valid grid position
+
+            //validate grid position
             if (currentPosition[0] === -1 || currentPosition[1] === -1) {
                 console.log('Invalid grid movement')
                 return;
             }
+
             //move the robot
             currentPosition[0] = currentPosition[0] + nextMove[0];
             currentPosition[1] = currentPosition[1] + nextMove[1];
             gridPositionLabel = currentPosition[0] + " " + currentPosition[1];
+
+            //print the movement
+            console.log(currentPosition)
 
         }
     } else {
