@@ -12,6 +12,7 @@ function formualteGrid() {
             grid[x][y] = x + " " + y;
         }
     }
+    console.log("Warehouse Grid");
     console.log(grid);
 }
 
@@ -46,6 +47,8 @@ function moveRobot(moveSequence = "N W S E W W W", gridPosition = [5, 5]) {
 
     //validate command sequence
     if (validateCommands(commandArray)) {
+        console.log("Robot Movement on Grid\n");
+        console.log("From :: " + gridPosition);
         for (i = 0; i < commandArray.length; i++) {
             //get next move index
             let nextMove = commandMovement(commandArray[i]);
@@ -65,7 +68,7 @@ function moveRobot(moveSequence = "N W S E W W W", gridPosition = [5, 5]) {
             gridPositionLabel = currentPosition[0] + " " + currentPosition[1];
 
             //print the movement
-            console.log(currentPosition)
+            console.log(commandArray[i] + "    :: " + currentPosition);
 
         }
     } else {
